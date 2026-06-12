@@ -1,0 +1,30 @@
+.button{
+    background-color: #FCFAF8;
+
+    color: #E34432;
+    font-size: 14px;
+    font-family: var(--font-main);
+    font-weight: 500;
+
+    border: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+
+    padding: 6px;
+
+    width: 150px;
+    height: 30px;
+
+    transition: all 0.5s ease;
+}
+
+.button:hover{
+    background-color: #E34432;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}

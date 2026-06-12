@@ -1,0 +1,15 @@
+.Content{
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.Container1{
+    width: auto;
+}
+
+.Container2{
+    flex: 1;
+}

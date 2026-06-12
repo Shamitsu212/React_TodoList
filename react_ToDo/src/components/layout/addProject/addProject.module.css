@@ -1,0 +1,37 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    padding: 12px;
+}
+.form__h{
+    font-size: 23px;
+    font-family: var(--font-main);
+    font-weight: 500;
+}
+.form__Container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.Container__label{
+    font-size: 16px;
+    font-family: var(--font-main);
+    font-weight: 500;
+}
+.Container__textInput{
+    width: 257px;
+    font-size: 22px;
+
+    border: none;
+    border-bottom: 1px solid black;    
+
+    margin: 10px;
+}
+.Container__dateInput:focus,
+.Container__timeInput:focus, 
+.Container__textInput:focus{
+    outline: none;
+    border-bottom: 1px solid #E34432;    
+}
