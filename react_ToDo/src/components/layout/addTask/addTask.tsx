@@ -2,18 +2,57 @@ import Button from "../../UI/Button/Button";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import styles from "./addTask.module.css"
+import type { project } from "../../../types/types";
 
 interface Props {
-
+    projects: project[]
+    set: React.Dispatch<React.SetStateAction<project[]>>
 }
 
-function AddTask({}:Props) {
+function AddTask({projects, set}:Props) {
 
     const [date, setDate] = useState<Date | null>(new Date());
+    const [time, setTime] = useState<Date | null>(new Date());
+    const [id, setId] = useState<number>()
+    const [text, setText] = useState<string>("")
+
+    const handleClick = () => {
+        
+        if(id == undefined){
+            return;
+        }
+        
+        const newTask = {
+            id: Date.now(),
+            name: text,
+            date: date ? date.toLocaleDateString("ru-RU"): "",
+            time: time ? time.toLocaleTimeString("ru-RU", {hour: "2-digit",minute: "2-digit",}): "",
+            projectId: id
+        }
+
+        set((prev) => {
+            return prev.map((project) => {
+
+                if (project.id === id) {
+                    
+                    return {
+                        ...project,
+                        tasks: [...project.tasks, newTask]
+                    }
+
+                }
+
+                return project
+
+            })
+        })
+        setId(undefined)
+        setText("")
+    }
 
     return(
    
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
 
             <h1 className={styles.form__h}>
                 Создать задачу
@@ -25,7 +64,12 @@ function AddTask({}:Props) {
                     Напишите текст
                 </label>
 
-                <input type="text" className={styles.Container__textInput}/>
+                <input 
+                    type="text" 
+                    className={styles.Container__textInput} 
+                    value={text} 
+                    onChange={e => setText(e.target.value)}
+                />
 
             </div>
 
@@ -51,11 +95,11 @@ function AddTask({}:Props) {
                 </label>
 
                 <DatePicker
-                    selected={date}
+                    onChange={(d: Date | null) => setTime(d)}
+                    selected={time}
                     showTimeSelect
                     showTimeSelectOnly
                     timeIntervals={15}
-                    timeCaption="Время"
                     dateFormat="HH:mm"
                     className={styles.Container__timeInput}
                     withPortal
@@ -68,14 +112,18 @@ function AddTask({}:Props) {
                     Выбирите проект
                 </label>
 
-                <select style={{width: "120px"}}>
-                    <option>Проект 1</option>
+                <select style={{width: "120px"}} onChange={e => setId(Number(e.target.value))}>
+                    {projects.map((el) => (
+                        <option value={el.id}>
+                            {el.name}
+                        </option>
+                    ))}
                 </select>
 
             </div>
 
-            <div style={{width: "120px"}}>
-                <Button text="Добавить" />
+            <div style={{width: "220px", marginTop: "20px"}}>
+                <Button text="Добавить" onClick={handleClick} />
             </div>
             
             

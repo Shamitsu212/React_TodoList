@@ -1,0 +1,13 @@
+.taskList{
+    background-color: #FCFAF8;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.taskList__Container{
+    width: 100%;
+    background-color: #FCFAF8;
+}

@@ -2,17 +2,17 @@ import AddButton from "../../UI/addButton/addButton"
 import IconButton from "../../UI/iconButton/iconButton"
 import Project from "../../UI/project/project"
 
-import { Search } from "lucide-react"
+import { ClipboardListIcon } from "lucide-react"
 import { Calendar } from "lucide-react"
-import { Funnel } from "lucide-react"
 
 import styles from "./aside.module.css"
+import type { project } from "../../../types/types"
 
 interface Props {
-    
+    projects: project[]
 }
 
-function Aside({}:Props){
+function Aside({ projects }:Props){
 
     return(
 
@@ -23,16 +23,15 @@ function Aside({}:Props){
             </div>
 
             <div className={styles.aside__element}>
-                <IconButton text="Поиск" Icon={Search}/>
+                <IconButton text="Все" Icon={ClipboardListIcon}/>
                 <IconButton text="Сегодня" Icon={Calendar}/>
-                <IconButton text="Фильтры и метки" Icon={Funnel}/>
             </div>
 
             <div className={styles.aside__element}>
                 <h4 className={styles.element__h}>Мои проекты</h4>
-                <Project color="red" name="Покупки"/>
-                <Project color="yellow" name="Занятия" />
-                <Project color="pink" name="Встречи"/>
+                {projects.map((pr) => (
+                    <Project name={pr.name} color={pr.color} />
+                ))}
             </div>
 
 

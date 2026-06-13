@@ -2,17 +2,18 @@
     background-color: #FCFAF8;
 
     color: #454341;
-    font-size: 13px;
+    font-size: 23px;
     font-family: var(--font-main);
     font-weight: 500;
 
     padding: 6px;
+    padding-left: 12px;
 
     border-radius: 11px;
     border: none;
 
-    width: 150px;
-    height: 30px;
+    width: 250px;
+    height: 60px;
 
     position: relative;
 

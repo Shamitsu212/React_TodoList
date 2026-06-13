@@ -16,7 +16,7 @@ function IconButton({text, Icon, onClick}:Props) {
         onClick={onClick}
     >
         
-        <Icon size={12} />
+        <Icon size={24} />
         
         {text}
 

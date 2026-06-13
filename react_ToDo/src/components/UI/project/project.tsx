@@ -12,7 +12,7 @@ function Project({ name, color, to }: Props) {
     return (
         <button className={styles.button}>
             
-            <HashIcon size={14} color={color} />
+            <HashIcon size={24} color={color} />
 
             {name}
 

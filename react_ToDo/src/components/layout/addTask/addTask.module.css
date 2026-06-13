@@ -3,10 +3,10 @@
     flex-direction: column;
     gap: 12px;
 
-    padding: 12px;
+    padding: 36px;
 }
 .form__h{
-    font-size: 23px;
+    font-size: 48px;
     font-family: var(--font-main);
     font-weight: 500;
 }
@@ -16,14 +16,14 @@
     gap: 5px;
 }
 .Container__label{
-    font-size: 16px;
+    font-size: 32px;
     font-family: var(--font-main);
     font-weight: 500;
 }
 
 .Container__timeInput{
-    width: 57px;
-    font-size: 22px;
+    width: 100px;
+    font-size: 38px;
 
     border: none;
     border-bottom: 1px solid black;    
@@ -31,17 +31,18 @@
     margin: 10px;
 }
 .Container__textInput{
-    width: 257px;
-    font-size: 22px;
+    width: 357px;
+    font-size: 32px;
 
     border: none;
     border-bottom: 1px solid black;    
 
     margin: 10px;
+    margin-left: 0;
 }
 .Container__dateInput{
-    width: 110px;
-    font-size: 22px;
+    width: 190px;
+    font-size: 38px;
 
     border: none;
     border-bottom: 1px solid black;    

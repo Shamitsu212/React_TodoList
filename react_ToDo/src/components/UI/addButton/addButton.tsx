@@ -13,9 +13,9 @@ function AddButton({onClick}:Props){
         onClick={onClick}
         >
 
-        <CirclePlusIcon size={15} />
+        <CirclePlusIcon size={35} />
 
-        Добавить задачу
+        Добавить проект
 
         </button>
     )
