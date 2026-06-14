@@ -8,6 +8,16 @@
     flex-direction: column;
     gap: 4px;
 }
+.aside__Logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-family: var(--font-logo);
+    font-size: 52px;
+    font-weight: 700;
+}
 .aside__element{
     display: flex;
     flex-direction: column;

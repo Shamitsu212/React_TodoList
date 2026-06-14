@@ -1,17 +1,12 @@
 import { useEffect, useState } from 'react'
 
-import type { project, task } from './types/types'
-import type { ComponentType } from 'react';
+import type { project, task,} from './types/types'
 
 import { AppContext } from "./context/AppContext";
 import { routes } from './routes/routes';
 
 import { Routes, Route } from 'react-router-dom'
 
-type RouteConfig = {
-  path: string;
-  Component: ComponentType;
-};
 
 function App() {
 
@@ -37,9 +32,27 @@ function App() {
     return clearInterval(interval);
   }, []);
 
+  const toggleTaskStatus = (projectId: number, taskId: number) => {
+
+    setProjects(prev => prev.map(pr => pr.id === projectId ? {
+      ...pr,
+      tasks: pr.tasks.map(task => task.id === taskId ? 
+        {
+          ...task,
+          status: task.status === "todo" ? "done" : "todo"
+        }
+        : 
+        task
+      )
+    }
+    : pr
+  ));
+
+};
+
   return (
 
-    <AppContext.Provider value={{projects, setProjects, tasks, setTasks, time}}>
+    <AppContext.Provider value={{projects, setProjects, tasks, setTasks, time, toggleTaskStatus }}>
 
       <Routes>
 

@@ -16,3 +16,27 @@
 .Container2{
     flex: 1;
 }
+
+.Main{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 36px;
+
+    background-color: white;
+}
+
+.Main__h{
+    font-size: 48px;
+    font-family: var(--font-main);
+    font-weight: 500;
+}
+
+.Main__p{
+    font-size: 22px;
+    font-family: var(--font-main);
+    font-weight: 400;
+
+    width: 1200px;
+}

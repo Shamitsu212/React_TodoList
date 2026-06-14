@@ -3,3 +3,9 @@
 :root {
   --font-main: "Manrope", sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
+:root {
+  --font-logo: "Bubblegum Sans", cursive;
+}

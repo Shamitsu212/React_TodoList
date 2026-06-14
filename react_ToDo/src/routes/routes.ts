@@ -3,6 +3,7 @@ import AddTask_Page from "../components/Pages/AddTask_Page/AddTask_Page";
 import All_Page from "../components/Pages/All_Page.tsx/All_Page";
 import Today_Page from "../components/Pages/Today_Page/Today_Page";
 import ProjectView_Page from "../components/Pages/ProjectView_Page/ProjectView_Page";
+import Main_Page from "../components/Pages/Main_Page/Main_Page";
 
 export const routes = [
     {
@@ -18,11 +19,15 @@ export const routes = [
         Component: All_Page,
     },
     {
-        path: "/",
+        path: "/today",
         Component: Today_Page,
     },
     {
         path: "project/:id",
         Component: ProjectView_Page
+    },
+    {
+        path: "/",
+        Component: Main_Page
     }
 ]

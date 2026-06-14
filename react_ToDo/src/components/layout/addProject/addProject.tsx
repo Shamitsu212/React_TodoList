@@ -55,7 +55,7 @@ function AddProject( {set} :Props) {
                     Выберите цвет
                 </label>
 
-                <input type="color" className={styles.Container__textInput} onChange={e => setColor(e.target.value)} value={color}/>
+                <input type="color" className={styles.Container__colorInput} onChange={e => setColor(e.target.value)} value={color}/>
 
             </div>
 

@@ -1,5 +1,6 @@
+import styles from './Icon_Link.module.css'
+
 import { Link, type To } from 'react-router-dom'
-import styles from './Icon_Button.module.css'
 
 import type { LucideIcon } from 'lucide-react'
 
@@ -9,20 +10,20 @@ interface Props {
   to: To
 }
 
-function IconButton( {text, Icon, to} :Props) {
+function Icon_Link( {text, Icon, to} :Props) {
 
   return (
     <Link
-        className={styles.button}
-        to={to}
+      className={styles.button}
+      to={to}
     >
         
-        <Icon size={24} />
+      <Icon size={24} />
         
-        {text}
+      {text}
 
     </Link>
   )
 }
 
-export default IconButton
+export default Icon_Link

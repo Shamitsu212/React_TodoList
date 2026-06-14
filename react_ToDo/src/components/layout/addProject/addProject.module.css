@@ -30,8 +30,16 @@
     margin: 10px;
     margin-left: 0;
 }
-.Container__dateInput:focus,
-.Container__timeInput:focus, 
+.Container__colorInput{
+    width: 357px;
+    font-size: 32px;
+
+    border: none;
+    border-bottom: 1px solid black;    
+
+    margin: 10px;
+    margin-left: 0;
+}
 .Container__textInput:focus{
     outline: none;
     border-bottom: 1px solid #E34432;    

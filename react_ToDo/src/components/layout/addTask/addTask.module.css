@@ -55,3 +55,16 @@
     outline: none;
     border-bottom: 1px solid #E34432;    
 }
+.Container__select{
+    width: 215px;
+
+    border: none;
+    border-bottom: 1px solid black;
+
+    background-color: white;
+
+    font-size: 22px;
+    font-family: var(--font-main);
+    font-weight: 500;
+
+}

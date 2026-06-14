@@ -12,6 +12,8 @@ export type AppContextType = {
     setTasks: Dispatch<SetStateAction<task[]>>;
 
     time: Date
+
+    toggleTaskStatus: (projectId: number, taskId: number) => void;
 };
 
 export const AppContext = createContext<AppContextType | null>(null);

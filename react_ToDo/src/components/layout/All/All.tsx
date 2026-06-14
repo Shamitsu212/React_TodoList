@@ -1,61 +1,78 @@
-import styles from "./All.module.css"
+import styles from "./All.module.css";
 
 import type { project } from "../../../types/types";
 
-import { PlusIcon } from "lucide-react";
-import { Calendar } from "lucide-react";
-import { HashIcon } from "lucide-react";
-
+import { PlusIcon, Calendar, HashIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import TaskList from "../../UI/Task_List/Task_List";
+import Task_List from "../../UI/Task_List/Task_List";
+
+import {
+    getOverdueTasks,
+    getUpcomingTasks,
+    getDoneTasks
+} from "../../../utils/filtres"
 
 interface Props {
-    projects: project[]
+    projects: project[];
 }
 
-function All( {projects} :Props){
+function All({ projects }: Props) {
 
-    return(
+    return (
+
         <div className={styles.view}>
 
-                <h1 className={styles.view__h}>
+            <h1 className={styles.view__h}>
+                <Calendar size={42} />
+                Все
+            </h1>
 
-                    <Calendar size={42} />   
+            {projects.map((pr) => {
+                const overdueTasks = getOverdueTasks(pr.tasks);
+                const upcomingTasks = getUpcomingTasks(pr.tasks);
+                const doneTasks = getDoneTasks(pr.tasks);
 
-                    Все
-
-                </h1>
-
-                {projects.map((pr) => (
-
-                    <div>
+                return (
+                    <div key={pr.id}>
 
                         <h2 className={styles.view__h2}>
-
                             <HashIcon color={pr.color} size={34} />
-
                             {pr.name}
-
                         </h2>
 
                         <div className={styles.view__list}>
+                            <h3 className={styles.list__h}>
+                                Просроченные
+                            </h3>
+                            <Task_List tasks={overdueTasks} />
+                        </div>
 
-                            <TaskList tasks={pr.tasks} />
+                        <div className={styles.view__list}>
+                            <h3 className={styles.list__h}>
+                                Предстоящие
+                            </h3>
+                            <Task_List tasks={upcomingTasks} />
+                        </div>
 
+                        <div className={styles.view__list}>
+                            <h3 className={styles.list__h}>
+                                Выполненные
+                            </h3>
+                            <Task_List tasks={doneTasks} />
                         </div>
 
                         <Link className={styles.viev__button} to={"/addTask"}>
-
-                            <PlusIcon color="#E34432" size={32}/>Добавить задачу
-
+                            <PlusIcon color="#E34432" size={32} />
+                            Добавить задачу
                         </Link>
 
                     </div>
+                );
+            })}
 
-                ))}
         </div>
-    )
+    );
 }
 
-export default All
+export default All;

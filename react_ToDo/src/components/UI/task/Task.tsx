@@ -5,20 +5,29 @@ import type { task } from "../../../types/types"
 import { Clock } from "lucide-react"
 import { Calendar } from "lucide-react"
 
+import { isTaskOverdue } from "../../../utils/Overdue"
+
+import { useAppContext } from "../../../context/AppContext"
+
 interface Props {
     task: task,
 }
 
 function Task( { task } :Props){
 
+    const { toggleTaskStatus } = useAppContext()
+
+    const isOverdue = isTaskOverdue(task)
+    
+
     return(
         <article className={styles.Task}>
 
-            <input type="radio" className={styles.Task__radio}/>
+            <input type="checkbox" className={styles.Task__radio} onChange={() => toggleTaskStatus(task.projectId, task.id)}/>
 
             <div className={styles.Task__Content}>
 
-                <p className={styles.Content__name}>
+                <p className={styles.Content__name} style={{color: task.status === "done" ? "green" : isOverdue ? "red" : "black"}}>
                     
                     {task.name}
 

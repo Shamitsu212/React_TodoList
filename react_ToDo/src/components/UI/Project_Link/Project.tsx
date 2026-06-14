@@ -1,4 +1,4 @@
-import styles from "./Project.module.css"
+import styles from "./Project_Link.module.css"
 
 import { Link, type To } from "react-router-dom";
 
@@ -10,7 +10,7 @@ interface Props {
     to:To,
 }
 
-function Project( { name, color, to } :Props) {
+function Project_Link( { name, color, to } :Props) {
 
     return (
         <Link className={styles.button} to={to}>
@@ -23,4 +23,4 @@ function Project( { name, color, to } :Props) {
     );
 }
 
-export default Project
+export default Project_Link

@@ -13,7 +13,7 @@ function Button( {text, onClick} :Props) {
       onClick={onClick}
     >
 
-        {text}
+      {text}
 
     </button>
   )

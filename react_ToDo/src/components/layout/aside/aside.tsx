@@ -5,9 +5,9 @@ import type { project } from "../../../types/types"
 import { ClipboardListIcon } from "lucide-react"
 import { Calendar } from "lucide-react"
 
-import AddButton from "../../UI/Add_Button/Add_Button"
-import IconButton from "../../UI/Icon_Button/Icon_Button"
-import Project from "../../UI/Project/Project"
+import Add_Link from "../../UI/Add_Link/Add_Link"
+import Icon_Link from "../../UI/Icon_Link/Icon_Link"
+import Project_Link from "../../UI/Project_Link/Project"
 
 interface Props {
     projects: project[]
@@ -19,17 +19,21 @@ function Aside( { projects } :Props){
 
         <aside className={styles.aside}>
 
+            <div className={styles.aside__Logo}>
+                ToDo list
+            </div>
+
             <div className={styles.aside__element}>
 
-                <AddButton to={"/addProject"}/>
+                <Add_Link to={"/addProject"}/>
 
             </div>
 
             <div className={styles.aside__element}>
 
-                <IconButton text="Все" Icon={ClipboardListIcon} to={"/all"}/>
+                <Icon_Link text="Все" Icon={ClipboardListIcon} to={"/all"}/>
 
-                <IconButton text="Сегодня" Icon={Calendar} to={"/"}/>
+                <Icon_Link text="Сегодня" Icon={Calendar} to={"/today"}/>
 
             </div>
 
@@ -40,7 +44,7 @@ function Aside( { projects } :Props){
                 </h4>
 
                 {projects.map((pr) => (
-                    <Project 
+                    <Project_Link
                         key={pr.id}
                         name={pr.name} 
                         color={pr.color} 

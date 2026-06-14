@@ -4,6 +4,7 @@ export type task = {
     time: string;
     date: string;
     projectId: number;
+    status: "done" | "todo"
 }
 
 export type project = {
