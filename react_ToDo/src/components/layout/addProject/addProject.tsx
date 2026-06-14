@@ -1,13 +1,16 @@
-import styles from "./addProject.module.css"
-import Button from "../../UI/Button/Button"
+import styles from "./AddProject.module.css"
+
 import type { project } from "../../../types/types"
+
 import { useState } from "react"
+
+import Button from "../../UI/Button/Button"
 
 interface Props {
     set: React.Dispatch<React.SetStateAction<project[]>>
 }
 
-function addProject({set}:Props) {
+function AddProject( {set} :Props) {
 
     const [name, setName] = useState<string>("")
     const [color, setColor] = useState<string>("")
@@ -66,4 +69,4 @@ function addProject({set}:Props) {
 
 }
 
-export default addProject
+export default AddProject

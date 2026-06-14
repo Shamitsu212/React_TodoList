@@ -1,22 +1,25 @@
-import styles from "./project.module.css"
+import styles from "./Project.module.css"
+
+import { Link, type To } from "react-router-dom";
+
 import { HashIcon } from "lucide-react"
 
 interface Props {
     name:string,
     color: string,
-    to?:string,
+    to:To,
 }
 
-function Project({ name, color, to }: Props) {
+function Project( { name, color, to } :Props) {
 
     return (
-        <button className={styles.button}>
-            
-            <HashIcon size={24} color={color} />
+        <Link className={styles.button} to={to}>
 
-            {name}
+            <HashIcon size={24} color={color} />  
 
-        </button>
+            {name}  
+
+        </Link>
     );
 }
 

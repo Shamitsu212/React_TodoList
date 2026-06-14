@@ -1,8 +1,16 @@
-import Button from "../../UI/Button/Button";
+import styles from "./AddTask.module.css"
+
 import { useState } from "react";
-import DatePicker from "react-datepicker";
-import styles from "./addTask.module.css"
+
 import type { project } from "../../../types/types";
+
+import DatePicker from "react-datepicker";
+
+import Button from "../../UI/Button/Button";
+
+
+
+
 
 interface Props {
     projects: project[]
@@ -13,7 +21,7 @@ function AddTask({projects, set}:Props) {
 
     const [date, setDate] = useState<Date | null>(new Date());
     const [time, setTime] = useState<Date | null>(new Date());
-    const [id, setId] = useState<number>()
+    const [id, setId] = useState<number | undefined>( projects[0]?.id)
     const [text, setText] = useState<string>("")
 
     const handleClick = () => {
@@ -46,6 +54,7 @@ function AddTask({projects, set}:Props) {
 
             })
         })
+
         setId(undefined)
         setText("")
     }
@@ -90,6 +99,7 @@ function AddTask({projects, set}:Props) {
             </div>
             
             <div className={styles.form__Container}>
+
                 <label className={styles.Container__label}>
                     Укажите время
                 </label>
@@ -104,6 +114,7 @@ function AddTask({projects, set}:Props) {
                     className={styles.Container__timeInput}
                     withPortal
                 />
+
             </div>
 
             <div className={styles.form__Container}>
@@ -113,11 +124,15 @@ function AddTask({projects, set}:Props) {
                 </label>
 
                 <select style={{width: "120px"}} onChange={e => setId(Number(e.target.value))}>
+                    <option selected disabled>Выберите проект</option>
                     {projects.map((el) => (
+
                         <option value={el.id}>
                             {el.name}
                         </option>
+
                     ))}
+
                 </select>
 
             </div>

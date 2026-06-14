@@ -1,21 +1,22 @@
-
-import styles from './App.module.css'
-import AddTask from './components/layout/addTask/addTask'
-import Aside from './components/layout/aside/aside'
-import AddProject from './components/layout/addProject/addProject'
-import Task from './components/UI/task/Task'
-import TaskList from './components/UI/taskList/TaskList'
-import ProjectView from './components/layout/ProjectsView/ProjectView'
-import Today from './components/layout/Today/Today'
-import All from './components/layout/All/All'
 import { useEffect, useState } from 'react'
-import type { project, task } from './types/types'
 
+import type { project, task } from './types/types'
+import type { ComponentType } from 'react';
+
+import { AppContext } from "./context/AppContext";
+import { routes } from './routes/routes';
+
+import { Routes, Route } from 'react-router-dom'
+
+type RouteConfig = {
+  path: string;
+  Component: ComponentType;
+};
 
 function App() {
 
   const [projects, setProjects] = useState<project[]>([])
-  const [task, setTasks] = useState<task[]>([])
+  const [tasks, setTasks] = useState<task[]>([])
 
   useEffect(() => {
 
@@ -23,6 +24,7 @@ function App() {
     setTasks(allTask)
 
   }, [projects])
+
 
   const [time, setTime] = useState<Date>(new Date());
 
@@ -36,15 +38,19 @@ function App() {
   }, []);
 
   return (
-    <div className={styles.Content}>
 
-      <div className={styles.Container1}>
-        <Aside projects={projects} />
-      </div>
+    <AppContext.Provider value={{projects, setProjects, tasks, setTasks, time}}>
 
-      <AddTask projects={projects} set={setProjects}/>
+      <Routes>
 
-    </div>
+        {routes.map((route) =>(
+          <Route key={route.path} path={route.path} element={<route.Component/>} />
+        ))}
+
+      </Routes>
+
+    </AppContext.Provider>
+
   )
 }
 

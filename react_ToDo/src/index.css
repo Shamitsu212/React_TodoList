@@ -33,3 +33,7 @@ input[type="datetime-local"] {
   appearance: none;
   -webkit-appearance: none;
 }
+a{
+  text-decoration: none;
+  color: black;
+}
