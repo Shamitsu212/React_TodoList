@@ -120,7 +120,7 @@ function AddTask({projects, set}:Props) {
             <div className={styles.form__Container}>
 
                 <label className={styles.Container__label}>
-                    Выбирите проект
+                    Выберите проект
                 </label>
 
                 <select 
