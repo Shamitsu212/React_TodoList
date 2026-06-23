@@ -42,8 +42,7 @@ function AddTask({projects, set}:Props) {
                 if (project.id === id) {
                     
                     return {
-                        ...project,
-                        tasks: [...project.tasks, newTask]
+                        ...project, tasks: [...project.tasks, newTask]
                     }
 
                 }

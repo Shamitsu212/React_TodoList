@@ -4,6 +4,7 @@ import type { project } from "../../../types/types"
 
 import { ClipboardListIcon } from "lucide-react"
 import { Calendar } from "lucide-react"
+import { Link } from "react-router-dom"
 
 import Add_Link from "../../UI/Add_Link/Add_Link"
 import Icon_Link from "../../UI/Icon_Link/Icon_Link"
@@ -19,9 +20,9 @@ function Aside( { projects } :Props){
 
         <aside className={styles.aside}>
 
-            <div className={styles.aside__Logo}>
+            <Link className={styles.aside__Logo} to="/">
                 ToDo list
-            </div>
+            </Link>
 
             <div className={styles.aside__element}>
 
